@@ -68,7 +68,7 @@ module Sensu
       ENV['API_PORT'] ||= ENV['PORT']
       if ENV['API_PORT']
         @settings[:api] ||= Hash.new
-        @settings[:api][:port] = ENV['API_PORT']
+        @settings[:api][:port] = ENV['API_PORT'].to_i
         @logger.warn('using api port environment variable', {
           :api_port => ENV['API_PORT']
         })
